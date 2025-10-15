@@ -1,0 +1,206 @@
+[gd_scene load_steps=20 format=3 uid="uid://cb8ohx8hqc8os"]
+
+[ext_resource type="Script" uid="uid://bodul3fhudu6t" path="res://Scripts/Room.cs" id="1_5hpqs"]
+[ext_resource type="Texture2D" uid="uid://bhs6wc4mpfk7e" path="res://Sprites/RoomIcons/Babyroom.png" id="2_0sh5y"]
+[ext_resource type="Shader" uid="uid://dj8aqvkjwx4mm" path="res://Shaders/MakeWhite.gdshader" id="2_b7nhj"]
+[ext_resource type="Texture2D" uid="uid://bjpxfar88omr7" path="res://Sprites/RoomIcons/Basement.png" id="3_b7nhj"]
+[ext_resource type="Texture2D" uid="uid://fm3unnssabh8" path="res://Sprites/RoomIcons/Bathroom.png" id="4_vtib3"]
+[ext_resource type="Texture2D" uid="uid://bjdfopuralbv3" path="res://Sprites/RoomIcons/Bedroom.png" id="5_dgula"]
+[ext_resource type="Texture2D" uid="uid://b6ak8tejjpxsy" path="res://Sprites/RoomIcons/Dining.png" id="6_gfwtb"]
+[ext_resource type="Texture2D" uid="uid://1dn4x4e2xx12" path="res://Sprites/RoomIcons/Entrance.png" id="7_nkjqd"]
+[ext_resource type="Texture2D" uid="uid://dk7si8dk6ixyc" path="res://Sprites/RoomIcons/Garage.png" id="8_6dp4w"]
+[ext_resource type="Texture2D" uid="uid://cj3cjwj8svfqj" path="res://Sprites/RoomIcons/Kitchen.png" id="9_jyver"]
+[ext_resource type="Texture2D" uid="uid://c7r4f57clqmmm" path="res://Sprites/RoomIcons/Laundry.png" id="10_meqs4"]
+[ext_resource type="Texture2D" uid="uid://bat8nb65tu0kn" path="res://Sprites/RoomIcons/Living.png" id="11_5amg4"]
+[ext_resource type="Texture2D" uid="uid://ba5dws72yrs2d" path="res://Sprites/RoomIcons/Stairs.png" id="12_gsvln"]
+[ext_resource type="Texture2D" uid="uid://c27dx3ntwve8d" path="res://Sprites/RoomIcons/Office.png" id="13_03uge"]
+[ext_resource type="Texture2D" uid="uid://dtwxj5t6ua8p3" path="res://Sprites/RoomIcons/Toilet.png" id="14_qghig"]
+[ext_resource type="Texture2D" uid="uid://d0d8kics7u56t" path="res://Sprites/RoomIcons/Workshop.png" id="15_76nkg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hpqs"]
+font_size = 38
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtib3"]
+shader = ExtResource("2_b7nhj")
+shader_parameter/makeWhite = false
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njk7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0sh5y")
+}],
+"loop": true,
+"name": &"Baby Room",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b7nhj")
+}],
+"loop": true,
+"name": &"Basement Stairs",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vtib3")
+}],
+"loop": true,
+"name": &"Bathroom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dgula")
+}],
+"loop": true,
+"name": &"Bedroom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gfwtb")
+}],
+"loop": true,
+"name": &"Dining Room",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nkjqd")
+}],
+"loop": true,
+"name": &"Entrance",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6dp4w")
+}],
+"loop": true,
+"name": &"Garage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jyver")
+}],
+"loop": true,
+"name": &"Kitchen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_meqs4")
+}],
+"loop": true,
+"name": &"Laundry Room",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5amg4")
+}],
+"loop": true,
+"name": &"Living Room",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gsvln")
+}],
+"loop": true,
+"name": &"Main Stairs",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_03uge")
+}],
+"loop": true,
+"name": &"Office",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_qghig")
+}],
+"loop": true,
+"name": &"Toilet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_76nkg")
+}],
+"loop": true,
+"name": &"Workshop",
+"speed": 5.0
+}]
+
+[node name="Room" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5hpqs")
+
+[node name="Outline" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -26.5
+offset_right = 38.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+label_settings = SubResource("LabelSettings_5hpqs")
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_vtib3")
+scale = Vector2(0.333, 0.333)
+sprite_frames = SubResource("SpriteFrames_njk7e")
+animation = &"Workshop"
+
+[connection signal="gui_input" from="Outline" to="." method="_OnGuiInput"]
+[connection signal="mouse_entered" from="Outline" to="." method="_OnMouseEntered"]
+[connection signal="mouse_exited" from="Outline" to="." method="_OnMouseExited"]
+[connection signal="gui_input" from="Background" to="." method="_OnGuiInput"]
+[connection signal="mouse_entered" from="Background" to="." method="_OnMouseEntered"]
+[connection signal="mouse_exited" from="Background" to="." method="_OnMouseExited"]

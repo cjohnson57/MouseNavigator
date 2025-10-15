@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c33kpy8mwa62q"]
+
+[ext_resource type="Script" uid="uid://dnxsqng0wa6bg" path="res://Scripts/Tracker.cs" id="1_wdmjg"]
+
+[node name="Tracker" type="Node2D"]
+script = ExtResource("1_wdmjg")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.3805239, 0.25284538, 0.21224704, 1)
