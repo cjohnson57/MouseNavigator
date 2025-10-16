@@ -20,3 +20,12 @@ A simple room layout tracker for the game [Randomice](https://store.steampowered
 Thanks to the developer, Videoludid, for allowing me to use the map icons from the game itself.
 
 Flag icons from Freepik.
+
+# Screenshots
+
+<img width="1920" height="1032" alt="Default state on application load" src="https://github.com/user-attachments/assets/a7383023-e455-4e1b-8d21-22f162c96c45" />
+
+<img width="1920" height="1032" alt="Application with rooms arranged, set to French, and some rooms reversed" src="https://github.com/user-attachments/assets/7961ee74-3950-4fd7-9abf-33a5c03503c9" />
+
+
+
