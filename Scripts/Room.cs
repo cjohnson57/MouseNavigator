@@ -1,7 +1,5 @@
 using Godot;
 using System;
-using System.ComponentModel.Design;
-using static Rooms;
 
 public partial class Room : Control
 {
@@ -122,5 +120,11 @@ public partial class Room : Control
         {
             GlobalPosition = motionEvent.GlobalPosition - draggingOffset;
         }
+    }
+
+    public void _OnLanguageChange(bool french)
+    {
+        nameLabel.Text = french ? Info.NameFrench : Info.Name;
+
     }
 }

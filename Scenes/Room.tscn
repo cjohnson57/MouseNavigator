@@ -141,7 +141,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Room" type="Control"]
+[node name="Room" type="Control" groups=["LanguageChangeDetector"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5hpqs")

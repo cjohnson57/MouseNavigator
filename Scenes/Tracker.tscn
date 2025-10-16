@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c33kpy8mwa62q"]
+[gd_scene load_steps=3 format=3 uid="uid://c33kpy8mwa62q"]
 
 [ext_resource type="Script" uid="uid://dnxsqng0wa6bg" path="res://Scripts/Tracker.cs" id="1_wdmjg"]
+[ext_resource type="PackedScene" uid="uid://d12ycnskk84bu" path="res://Scenes/LanguageSelector.tscn" id="2_h4nfc"]
 
 [node name="Tracker" type="Node2D"]
 script = ExtResource("1_wdmjg")
@@ -9,3 +10,9 @@ script = ExtResource("1_wdmjg")
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.3805239, 0.25284538, 0.21224704, 1)
+
+[node name="LanguageSelector" parent="." instance=ExtResource("2_h4nfc")]
+offset_left = 1491.0
+offset_top = 993.0
+offset_right = 1491.0
+offset_bottom = 993.0

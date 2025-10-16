@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using static Rooms;
 
 public partial class Tracker : Node2D
 {
