@@ -106,6 +106,8 @@ public partial class Room : Control
                     outline.Color = Colors.White;
                     materialInstance.SetShaderParameter("makeWhite", true);
                     Scale = new Vector2(Scale.X * -1, Scale.Y);
+                    nameLabel.Scale = new Vector2(nameLabel.Scale.X * -1, nameLabel.Scale.Y); //Make sure label is not reversed
+                    MoveLabel(); //Prevents the label from flashing to the side for 1 frame
                 }
                 else
                 {
@@ -113,6 +115,8 @@ public partial class Room : Control
                     outline.Color = Colors.Black;
                     materialInstance.SetShaderParameter("makeWhite", false);
                     Scale = new Vector2(Scale.X * -1, Scale.Y);
+                    nameLabel.Scale = new Vector2(nameLabel.Scale.X * -1, nameLabel.Scale.Y); //Make sure label is not reversed
+                    MoveLabel(); //Prevents the label from flashing to the side for 1 frame
                 }
             }            
         }
