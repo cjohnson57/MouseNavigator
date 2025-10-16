@@ -13,7 +13,7 @@ config_version=5
 config/name="MouseNavigator"
 run/main_scene="uid://c33kpy8mwa62q"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
-config/icon="uid://cl630ufb4s0hb"
+config/icon="uid://cb8hbwwxd6ccv"
 
 [display]
 
