@@ -10,6 +10,11 @@ public partial class Room : Control
     private Vector2 draggingOffset = new Vector2();
     private bool reversed = false;
 
+    private const float horizontalHoleXOffset = 62;
+    private const float horizontalHoleXOffsetDouble = 122;
+    private const float horizontalHoleYOffset = 33;
+    private const float verticalHoleYOffset = 63;
+
     private ColorRect background;
     private ColorRect outline;
     private Label nameLabel;
@@ -35,6 +40,25 @@ public partial class Room : Control
             background.Position = new Vector2(background.Position.X * 2, background.Position.Y);
             outline.Size = new Vector2(background.Size.X + outlineSizeDifference, outline.Size.Y);
             outline.Position = new Vector2(background.Position.X - outlineSizeDifference / 2, outline.Position.Y);
+        }
+        //Spawn holes
+        PackedScene holeScene = GD.Load<PackedScene>("res://Scenes/Hole.tscn");
+        //Horizontal holes
+        float horXOffset = Info.DoubleWide ? horizontalHoleXOffsetDouble : horizontalHoleXOffset;
+        for (int i = 0; i < 4; i++)
+        {
+            Hole instance = holeScene.Instantiate<Hole>();
+            instance.GlobalPosition = new Vector2(horXOffset * (i < 2 ? -1 : 1), horizontalHoleYOffset * (i % 2 == 0 ? -1 : 1));
+            AddChild(instance);
+        }
+        //Vertical holes
+        for (int i = 0; i < 2; i++)
+        {
+            Hole instance = holeScene.Instantiate<Hole>();
+            //TODO: Figure out how to handle vertical hole x positions. Likely will need to assign one for every hole
+            instance.GlobalPosition = new Vector2(0, verticalHoleYOffset * (i == 0 ? -1 : 1));
+            instance.horizontal = false;
+            AddChild(instance);
         }
         //Set the material for the icon so we can modify the shader
         ShaderMaterial shaderMat = icon.Material as ShaderMaterial;
@@ -129,6 +153,5 @@ public partial class Room : Control
     public void _OnLanguageChange(bool french)
     {
         nameLabel.Text = french ? Info.NameFrench : Info.Name;
-
     }
 }
