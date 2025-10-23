@@ -10,7 +10,7 @@ font_size = 38
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Tracker" type="Node2D"]
+[node name="Tracker" type="Node2D" groups=["HoleListener"]]
 script = ExtResource("1_wdmjg")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -37,6 +37,7 @@ offset_top = 1034.0
 offset_right = 240.0
 offset_bottom = 1034.0
 scale = Vector2(2, 2)
+defaultState = 1
 
 [node name="Rectangle" parent="Hole2" index="1"]
 modulate = Color(1, 0, 0, 1)
@@ -47,6 +48,7 @@ offset_top = 1034.0
 offset_right = 440.0
 offset_bottom = 1034.0
 scale = Vector2(2, 2)
+defaultState = 2
 
 [node name="Rectangle" parent="Hole3" index="1"]
 modulate = Color(1, 0.84313726, 0, 1)

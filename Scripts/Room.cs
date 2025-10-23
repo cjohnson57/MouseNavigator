@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Room : Control
 {
@@ -22,6 +23,8 @@ public partial class Room : Control
     private ColorRect outline;
     private Label nameLabel;
     private AnimatedSprite2D icon;
+
+    private List<Hole> holes = new List<Hole>();
 
     private ShaderMaterial materialInstance;
 
@@ -53,9 +56,10 @@ public partial class Room : Control
             Hole instance = holeScene.Instantiate<Hole>();
             instance.GlobalPosition = new Vector2(horXOffset * (i < 2 ? -1 : 1), horizontalHoleYOffset * (i % 2 == 0 ? -1 : 1));
             AddChild(instance);
+            holes.Add(instance);
         }
         //Vertical holes
-        uint mask = 0b00000001; //Checking which holes should exist using a bitfield and mask
+        uint mask = 0b10000000; //Checking which holes should exist using a bitfield and mask
         for (int i = 0; i < 8; i++)
         {
             if ((Info.VerticalHoles & mask) > 0)
@@ -73,8 +77,9 @@ public partial class Room : Control
                 instance.GlobalPosition = new Vector2(xPosition, verticalHoleYOffset * (i < 4 ? -1 : 1));
                 instance.horizontal = false;
                 AddChild(instance);
+                holes.Add(instance);
             }            
-            mask = mask << 1;
+            mask = mask >> 1;
         }
         //Set the material for the icon so we can modify the shader
         ShaderMaterial shaderMat = icon.Material as ShaderMaterial;
@@ -158,11 +163,24 @@ public partial class Room : Control
                     nameLabel.Scale = new Vector2(nameLabel.Scale.X * -1, nameLabel.Scale.Y); //Make sure label is not reversed
                     MoveLabel(); //Prevents the label from flashing to the side for 1 frame
                 }
+                UpdateHolePositions();
             }            
         }
         else if (@event is InputEventMouseMotion motionEvent && mouseDragging) //Currently being dragged and mouse is moving
         {
             GlobalPosition = motionEvent.GlobalPosition - draggingOffset;
+            UpdateHolePositions();
+        }
+    }
+
+    private void UpdateHolePositions()
+    {
+        foreach (Hole hole in holes)
+        {
+            if (hole.connection != null)
+            {
+                hole.connection.SetPointPosition(hole.connectionPoint, hole.GlobalPosition);
+            }
         }
     }
 

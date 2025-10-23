@@ -3,16 +3,23 @@ using System;
 
 public partial class Hole : Control
 {
+    [Export]
+    public HoleState defaultState = HoleState.Open;
+
     private ColorRect Rectangle;
-    private enum State
+
+    public enum HoleState
     {
         Open,
         Closed,
         Exit,
     }
-    private State state;
+    private HoleState state;
 
     public bool horizontal = true;
+
+    public ConnectionLine connection = null;
+    public int connectionPoint = 0;
 
     public override void _Ready()
     {
@@ -22,31 +29,77 @@ public partial class Hole : Control
         {
             RotationDegrees = 90;
             //Vertical holes are closed by default
-            state = State.Closed;
-            Rectangle.Modulate = Colors.Red;
+            SwitchState(HoleState.Closed);
+        }
+        else
+        {
+            SwitchState(defaultState);
+        }
+    }
+
+    public void SwitchState(HoleState _state)
+    {
+        state = _state;
+        switch(state)
+        {
+            case HoleState.Open:
+                Rectangle.Modulate = Colors.Green;
+                break;
+            case HoleState.Closed:
+                Rectangle.Modulate = Colors.Red;
+                break;
+            case HoleState.Exit:
+                Rectangle.Modulate = Colors.Gold;
+                break;
         }
     }
 
     private void _OnGuiInput(InputEvent @event)
     {
         //User has clicked on hole
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Right && mouseEvent.Pressed)
-        { 
-            if (state == State.Open)
+        if (@event is InputEventMouseButton mouseEvent)
+        {
+            if (mouseEvent.ButtonIndex == MouseButton.Right && mouseEvent.Pressed) //Right click, cycle colors
             {
-                state = State.Closed;
-                Rectangle.Modulate = Colors.Red;
+                if (state == HoleState.Open)
+                {
+                    SwitchState(HoleState.Closed);
+                }
+                else if (state == HoleState.Exit || state == HoleState.Closed && !horizontal) //Either state is exit, or it's closed but this is not a horizontal hole, so cannot be the exit
+                {
+                    SwitchState(HoleState.Open);
+                }
+                else //State is closed and this is a horizontal hole
+                {
+                    SwitchState(HoleState.Exit);
+                }
             }
-            else if (state == State.Exit || state == State.Closed && !horizontal) //Either state is exit, or it's closed but this is not a horizontal hole, so cannot be the exit
+            else if (mouseEvent.ButtonIndex == MouseButton.Left) //Left click, line drawing
             {
-                state = State.Open;
-                Rectangle.Modulate = Colors.Green;
-            }
-            else //State is closed and this is a horizontal hole
-            {
-                state = State.Exit;
-                Rectangle.Modulate = Colors.Gold;
+                if (connection != null) //If there is currently a line connected to this hole, then delete it
+                {                    
+                    connection.QueueFree();
+                    connection.FreeHoles();
+                }
+                if (mouseEvent.Pressed)
+                {
+                    GetTree().CallGroup("HoleListener", "_OnHolePressed", this);
+                }
+                else //Released
+                {
+                    GetTree().CallGroup("HoleListener", "_OnHoleReleased");
+                }
             }
         }
+    }
+
+    private void _OnMouseEntered()
+    {
+        GetTree().CallGroup("HoleListener", "_OnHoleHovered", this);
+    }
+
+    private void _OnMouseExited()
+    {
+        GetTree().CallGroup("HoleListener", "_OnHoleExited");
     }
 }
