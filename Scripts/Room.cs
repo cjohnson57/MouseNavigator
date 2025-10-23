@@ -13,6 +13,9 @@ public partial class Room : Control
     private const float horizontalHoleXOffset = 62;
     private const float horizontalHoleXOffsetDouble = 122;
     private const float horizontalHoleYOffset = 33;
+
+    private const float verticalHoleXOffset = 32;
+    private const float verticalHoleXOffsetDouble = 97;
     private const float verticalHoleYOffset = 63;
 
     private ColorRect background;
@@ -52,13 +55,26 @@ public partial class Room : Control
             AddChild(instance);
         }
         //Vertical holes
-        for (int i = 0; i < 2; i++)
+        uint mask = 0b00000001; //Checking which holes should exist using a bitfield and mask
+        for (int i = 0; i < 8; i++)
         {
-            Hole instance = holeScene.Instantiate<Hole>();
-            //TODO: Figure out how to handle vertical hole x positions. Likely will need to assign one for every hole
-            instance.GlobalPosition = new Vector2(0, verticalHoleYOffset * (i == 0 ? -1 : 1));
-            instance.horizontal = false;
-            AddChild(instance);
+            if ((Info.VerticalHoles & mask) > 0)
+            {
+                Hole instance = holeScene.Instantiate<Hole>();
+                float xPosition = verticalHoleXOffset;
+                if (i == 0 || i == 3 || i == 4 || i == 7)
+                {
+                    xPosition = verticalHoleXOffsetDouble;
+                }
+                if (i < 2 || (i > 3 && i < 6))
+                {
+                    xPosition *= -1;
+                }
+                instance.GlobalPosition = new Vector2(xPosition, verticalHoleYOffset * (i < 4 ? -1 : 1));
+                instance.horizontal = false;
+                AddChild(instance);
+            }            
+            mask = mask << 1;
         }
         //Set the material for the icon so we can modify the shader
         ShaderMaterial shaderMat = icon.Material as ShaderMaterial;

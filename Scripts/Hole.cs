@@ -21,13 +21,16 @@ public partial class Hole : Control
         if (!horizontal)
         {
             RotationDegrees = 90;
+            //Vertical holes are closed by default
+            state = State.Closed;
+            Rectangle.Modulate = Colors.Red;
         }
     }
 
     private void _OnGuiInput(InputEvent @event)
     {
         //User has clicked on hole
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed)
+        if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Right && mouseEvent.Pressed)
         { 
             if (state == State.Open)
             {
