@@ -17,7 +17,7 @@ A simple room layout tracker for the game [Randomice](https://store.steampowered
 
 # Thanks
 
-Thanks to the developer, Videoludid, for allowing me to use the map icons from the game itself.
+Thanks to the developer, Videoludid, for allowing me to use the map icons from the game itself, as well as providing info about hole locations.
 
 Flag icons from Freepik.
 
