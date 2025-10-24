@@ -86,6 +86,7 @@ public partial class Tracker : Node2D
                 activeHole.connection = activeLine;
                 activeHole.connectionPoint = 0;
                 activeHole.SwitchState(Hole.HoleState.Open); //If hole is not set to open, mark it as such
+                hoveredHole.DiscardConnection();
                 hoveredHole.connection = activeLine;
                 hoveredHole.connectionPoint = 1;
                 hoveredHole.SwitchState(Hole.HoleState.Open);

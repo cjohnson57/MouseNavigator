@@ -76,11 +76,7 @@ public partial class Hole : Control
             }
             else if (mouseEvent.ButtonIndex == MouseButton.Left) //Left click, line drawing
             {
-                if (connection != null) //If there is currently a line connected to this hole, then delete it
-                {                    
-                    connection.QueueFree();
-                    connection.FreeHoles();
-                }
+                DiscardConnection();
                 if (mouseEvent.Pressed)
                 {
                     GetTree().CallGroup("HoleListener", "_OnHolePressed", this);
@@ -90,6 +86,15 @@ public partial class Hole : Control
                     GetTree().CallGroup("HoleListener", "_OnHoleReleased");
                 }
             }
+        }
+    }
+
+    public void DiscardConnection()
+    {
+        if (connection != null) //If there is currently a line connected to this hole, then delete it
+        {
+            connection.QueueFree();
+            connection.FreeHoles();
         }
     }
 
