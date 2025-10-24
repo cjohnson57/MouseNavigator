@@ -19,6 +19,7 @@ public partial class Tracker : Node2D
     private Hole activeHole = null;
     private ConnectionLine activeLine = null;
     Shader lineShader;
+    int lineColorCounter = 0;
 
     public override void _Ready()
     {
@@ -62,13 +63,26 @@ public partial class Tracker : Node2D
         activeLine = new ConnectionLine();
         activeLine.Width = 3;
         activeLine.DefaultColor = Colors.Black;
+        if (lineColorCounter == 0)
+        {
+            activeLine.DefaultColor = Colors.Magenta;
+        }
+        else if (lineColorCounter == 1)
+        {
+            activeLine.DefaultColor = Colors.Cyan;
+        }
+        else
+        {
+            activeLine.DefaultColor = Colors.Orange;
+        }
+        lineColorCounter++;
+        if (lineColorCounter > 2)
+        {
+            lineColorCounter = 0;
+        }
         activeLine.ZIndex = 1;
         activeLine.AddPoint(hole.GlobalPosition);
         activeLine.AddPoint(GetGlobalMousePosition());
-        //Add shader to line
-        ShaderMaterial mat = new ShaderMaterial();
-        mat.Shader = lineShader;
-        activeLine.Material = mat;
         GetTree().Root.AddChild(activeLine);
     }
 
