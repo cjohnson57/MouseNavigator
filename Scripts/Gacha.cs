@@ -10,7 +10,6 @@ public partial class Gacha : Control
     private Vector2 draggingOffset = new Vector2();
     private bool reversed = false;
 
-    private ColorRect background;
     private ColorRect outline;
     private Label nameLabel;
     private AnimatedSprite2D icon;
@@ -20,7 +19,6 @@ public partial class Gacha : Control
     public override void _Ready()
     {
         base._Ready();
-        background = GetNode<ColorRect>("Background");
         outline = GetNode<ColorRect>("Outline");
         nameLabel = GetNode<Label>("NameLabel");
         icon = GetNode<AnimatedSprite2D>("Icon");
@@ -90,25 +88,6 @@ public partial class Gacha : Control
             }
             else if (mouseEvent.ButtonIndex == MouseButton.Right && mouseEvent.Pressed)
             {
-                reversed = !reversed;
-                if (reversed)
-                {
-                    background.Color = Colors.Black;
-                    outline.Color = Colors.White;
-                    materialInstance.SetShaderParameter("makeWhite", true);
-                    Scale = new Vector2(Scale.X * -1, Scale.Y);
-                    nameLabel.Scale = new Vector2(nameLabel.Scale.X * -1, nameLabel.Scale.Y); //Make sure label is not reversed
-                    MoveLabel(); //Prevents the label from flashing to the side for 1 frame
-                }
-                else
-                {
-                    background.Color = Colors.White;
-                    outline.Color = Colors.Black;
-                    materialInstance.SetShaderParameter("makeWhite", false);
-                    Scale = new Vector2(Scale.X * -1, Scale.Y);
-                    nameLabel.Scale = new Vector2(nameLabel.Scale.X * -1, nameLabel.Scale.Y); //Make sure label is not reversed
-                    MoveLabel(); //Prevents the label from flashing to the side for 1 frame
-                }
             }            
         }
         else if (@event is InputEventMouseMotion motionEvent && mouseDragging) //Currently being dragged and mouse is moving

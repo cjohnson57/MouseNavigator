@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxlwsygm1d327"]
+[gd_scene load_steps=8 format=3 uid="uid://cxlwsygm1d327"]
 
 [ext_resource type="Script" uid="uid://ch1h3lyxkaxb2" path="res://Scripts/Gacha.cs" id="1_p6yp6"]
 [ext_resource type="Texture2D" uid="uid://dty5wmc41djqd" path="res://Sprites/CurrencyIcons/Dollar.png" id="2_5q61t"]
+[ext_resource type="Texture2D" uid="uid://2s0vsp3u3t33" path="res://Sprites/CurrencyIcons/Token.png" id="2_km3p8"]
 [ext_resource type="Texture2D" uid="uid://bjisswteliybp" path="res://Sprites/CurrencyIcons/Euro.png" id="3_vo3wl"]
 [ext_resource type="Texture2D" uid="uid://chblrhptd0mnl" path="res://Sprites/CurrencyIcons/Yen.png" id="4_qv4ev"]
 
@@ -49,27 +50,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -65.0
-offset_right = 65.0
-offset_bottom = 65.0
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Token" type="Sprite2D" parent="."]
+texture = ExtResource("2_km3p8")
 
 [node name="NameLabel" type="Label" parent="."]
 z_index = 1
@@ -89,13 +79,9 @@ text = "Test"
 label_settings = SubResource("LabelSettings_7djyo")
 
 [node name="Icon" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.33, 0.33)
 sprite_frames = SubResource("SpriteFrames_mdx8s")
 animation = &"Dollar"
 
 [connection signal="gui_input" from="Outline" to="." method="_OnGuiInput"]
 [connection signal="mouse_entered" from="Outline" to="." method="_OnMouseEntered"]
 [connection signal="mouse_exited" from="Outline" to="." method="_OnMouseExited"]
-[connection signal="gui_input" from="Background" to="." method="_OnGuiInput"]
-[connection signal="mouse_entered" from="Background" to="." method="_OnMouseEntered"]
-[connection signal="mouse_exited" from="Background" to="." method="_OnMouseExited"]
