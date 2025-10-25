@@ -25,10 +25,6 @@ public partial class Gacha : Control
         icon.Play(Info.Name);
         nameLabel.Visible = false;
         nameLabel.Text = Info.Name;
-        //Set the material for the icon so we can modify the shader
-        ShaderMaterial shaderMat = icon.Material as ShaderMaterial;
-        materialInstance = shaderMat.Duplicate() as ShaderMaterial;
-        icon.Material = materialInstance;
     }
 
     public override void _PhysicsProcess(double delta)

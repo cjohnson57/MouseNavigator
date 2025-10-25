@@ -5,14 +5,14 @@ public partial class Tracker : Node2D
 {
     [Export]
     public Vector2 spawnStart = new Vector2(1530, 80);
-    public Vector2 gachaStart = new Vector2(55, 55);
+    public Vector2 gachaStart = new Vector2(885, 1030);
 
     [Export]
     public float spawnXStep = 260;
+    public float spawnGachaXStep = 70;   
 
     [Export]
     public float spawnYStep = 140;    
-    public float spawnGachaYStep = 70;   
 
     private Rooms rooms = new Rooms();
     private Gachas gachas = new Gachas();
@@ -55,7 +55,7 @@ public partial class Tracker : Node2D
         {
             Gacha instance = gachaScene.Instantiate<Gacha>();
             instance.GlobalPosition = gachaPosition;
-            gachaPosition.Y += spawnGachaYStep;
+            gachaPosition.X += spawnGachaXStep;
             instance.Info = info;
             GetTree().CurrentScene.AddChild(instance);
         }
