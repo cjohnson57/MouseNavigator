@@ -14,6 +14,8 @@ A simple room layout tracker for the game [Randomice](https://store.steampowered
     * Also note that vertical holes cannot be exit holes.
 * Left click and drag away from a hole to draw a line. If you release the click over another hole, then the line will snap to that hole and become permanent. This helps to mark connections when warps are enabled.
     * Left click either connected hole to erase the line and draw a new one.
+* Along the bottom will also be 3 tokens to represent the 3 gacha machines, which can be clicked and dragged to place on their correct spot. Unfortunately the currency icons are meaningless if item sprite shuffle is on.
+* Click the reset button to reset the tracker to its default state.
 
 # Thanks
 
@@ -23,7 +25,7 @@ Flag icons from Freepik.
 
 # Screenshots
 
-<img width="1920" height="1032" alt="Default state on application load" src="https://github.com/user-attachments/assets/a4fb7d92-cc73-4b0e-8f76-3f589343c885" />
+<img width="1920" height="1032" alt="Default state on application load" src="https://github.com/user-attachments/assets/436d8041-4c5c-406f-a8e8-b87268f732c6" />
 
 <img width="1920" height="1032" alt="Application with rooms arranged, set to French, and some rooms reversed" src="https://github.com/user-attachments/assets/4c7ea418-18c2-4547-a698-74a1293a8538" />
 
