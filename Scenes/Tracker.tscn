@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c33kpy8mwa62q"]
+[gd_scene load_steps=7 format=3 uid="uid://c33kpy8mwa62q"]
 
 [ext_resource type="Script" uid="uid://dnxsqng0wa6bg" path="res://Scripts/Tracker.cs" id="1_wdmjg"]
 [ext_resource type="PackedScene" uid="uid://d12ycnskk84bu" path="res://Scenes/LanguageSelector.tscn" id="2_h4nfc"]
 [ext_resource type="PackedScene" uid="uid://damnwjf02b57r" path="res://Scenes/Hole.tscn" id="3_kprud"]
 [ext_resource type="Script" uid="uid://bitukyukptkd6" path="res://Scripts/LanguageLabel.cs" id="4_638ub"]
+[ext_resource type="PackedScene" uid="uid://r5fs0bqpolr5" path="res://Scenes/ResetButton.tscn" id="5_ptwum"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kprud"]
 font_size = 38
@@ -109,6 +110,12 @@ label_settings = SubResource("LabelSettings_kprud")
 script = ExtResource("4_638ub")
 EnglishText = "Exit"
 FrenchText = "Sortie"
+
+[node name="ResetButton" parent="." instance=ExtResource("5_ptwum")]
+offset_left = 1167.0
+offset_top = 991.0
+offset_right = 1358.0
+offset_bottom = 1071.0
 
 [editable path="Hole2"]
 [editable path="Hole3"]

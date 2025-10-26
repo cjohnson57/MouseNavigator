@@ -28,4 +28,3 @@ Flag icons from Freepik.
 <img width="1920" height="1032" alt="Application with rooms arranged, set to French, and some rooms reversed" src="https://github.com/user-attachments/assets/4c7ea418-18c2-4547-a698-74a1293a8538" />
 
 <img width="1920" height="1032" alt="Application with connection lines set up between holes" src="https://github.com/user-attachments/assets/e93472f0-9ded-4cfb-ac94-55e9b113bee9" />
-

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://r5fs0bqpolr5"]
+
+[ext_resource type="Script" uid="uid://bj2vbiu7tirdy" path="res://Scripts/ResetButton.cs" id="1_oivmj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf7ue"]
+bg_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36k36"]
+bg_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oivmj"]
+bg_color = Color(0.47058824, 0.47058824, 0.47058824, 1)
+
+[node name="ResetButton" type="Button" groups=["LanguageChangeDetector"]]
+offset_right = 191.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf7ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_36k36")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oivmj")
+text = "Reset"
+script = ExtResource("1_oivmj")
+EnglishText = "Reset"
+FrenchText = "Réinitialiser"
+
+[connection signal="button_up" from="." to="." method="_OnButtonUp"]

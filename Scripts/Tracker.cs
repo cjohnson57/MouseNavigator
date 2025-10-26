@@ -98,7 +98,7 @@ public partial class Tracker : Node2D
         activeLine.ZIndex = 1;
         activeLine.AddPoint(hole.GlobalPosition);
         activeLine.AddPoint(GetGlobalMousePosition());
-        GetTree().Root.AddChild(activeLine);
+        GetTree().CurrentScene.AddChild(activeLine);
     }
 
     public void _OnHoleReleased()
