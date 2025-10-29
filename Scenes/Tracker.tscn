@@ -71,7 +71,7 @@ text = "Open"
 label_settings = SubResource("LabelSettings_kprud")
 script = ExtResource("4_638ub")
 EnglishText = "Open"
-FrenchText = "Ouvrir"
+FrenchText = "Ouvert"
 
 [node name="ClosedLabel" type="Label" parent="." groups=["LanguageChangeDetector"]]
 z_index = 1

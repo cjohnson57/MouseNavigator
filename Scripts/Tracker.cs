@@ -105,7 +105,7 @@ public partial class Tracker : Node2D
     {
         if (activeHole != null && activeLine != null)
         {
-            if (hoveredHole != null)
+            if (hoveredHole != null && hoveredHole != activeHole)
             {
                 //Snap the line to position on this new hole
                 activeLine.SetPointPosition(1, hoveredHole.GlobalPosition);
