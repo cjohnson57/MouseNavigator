@@ -44,6 +44,10 @@ public partial class Tracker : Node2D
                 spawnPosition.X += spawnXStep;
                 spawnPosition.Y = spawnStart.Y;
             }
+            else if (count == 14)
+            {
+                spawnPosition = new Vector2(710, 1030);
+            }
             instance.Info = info;
             GetTree().CurrentScene.AddChild(instance);
         }

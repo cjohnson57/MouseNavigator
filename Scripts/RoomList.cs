@@ -38,6 +38,7 @@ public partial class Rooms
         new RoomInfo("Workshop", "Atelier", 0b01101111),
         new RoomInfo("Basement Stairs", "Escalier du sous-sol", 0b01000110, false),
         new RoomInfo("Laundry Room", "Buanderie", 0b11111111),
+        new RoomInfo("Laboratory", "Laboratoire", 0b01000110, false),
     };
 }
 
