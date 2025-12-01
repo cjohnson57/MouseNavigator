@@ -4,7 +4,7 @@ A simple room layout tracker for the game [Randomice](https://store.steampowered
 
 # Instructions
 
-* When you load the tracker there will be a large blank workspace and the side will be lined with room tiles.
+* When you load the tracker there will be a large blank workspace and the side will be lined with room tiles. There is a tile for the lab on the bottom since only some challenges use the lab room.
 * Hover over a room tile to see its name.
 * Click and drag room tiles to arrange them as how they're arranged in your seed.
 * Right click a room tile to mark it as reversed, which will reverse its colors as well as its sprite.
@@ -25,7 +25,7 @@ Flag icons from Freepik.
 
 # Screenshots
 
-<img width="1920" height="1032" alt="Default state on application load" src="https://github.com/user-attachments/assets/436d8041-4c5c-406f-a8e8-b87268f732c6" />
+<img width="1920" height="1032" alt="Default state on application load" src="https://github.com/user-attachments/assets/d3a34228-f2f5-4651-92df-505bf1925420" />
 
 <img width="1920" height="1032" alt="Application with rooms arranged, set to French, and some rooms reversed" src="https://github.com/user-attachments/assets/4c7ea418-18c2-4547-a698-74a1293a8538" />
 
